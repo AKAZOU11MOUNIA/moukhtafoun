@@ -23,10 +23,6 @@ class Reclamations
     private ?\DateTimeImmutable $Date_de_reclamation = null;
 
     #[ORM\ManyToOne(inversedBy: 'Num_declaration')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?Declarants $declarants = null;
-
-    #[ORM\ManyToOne(inversedBy: 'Num_declaration')]
     private ?PersonnePerdue $personnePerdue = null;
 
     #[ORM\ManyToOne(inversedBy: 'Num_reclamation')]
@@ -37,6 +33,10 @@ class Reclamations
 
     #[ORM\OneToOne(mappedBy: 'Num_Declaration', cascade: ['persist', 'remove'])]
     private ?Archives $archives = null;
+
+    #[ORM\ManyToOne(inversedBy: 'reclamations')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Declarants $Num_declaration = null;
 
     public function __construct()
     {
@@ -72,17 +72,6 @@ class Reclamations
         return $this;
     }
 
-    public function getDeclarants(): ?Declarants
-    {
-        return $this->declarants;
-    }
-
-    public function setDeclarants(?Declarants $declarants): self
-    {
-        $this->declarants = $declarants;
-
-        return $this;
-    }
 
     public function getPersonnePerdue(): ?PersonnePerdue
     {
@@ -151,6 +140,18 @@ class Reclamations
         }
 
         $this->archives = $archives;
+
+        return $this;
+    }
+
+    public function getNumDeclaration(): ?Declarants
+    {
+        return $this->Num_declaration;
+    }
+
+    public function setNumDeclaration(?Declarants $Num_declaration): self
+    {
+        $this->Num_declaration = $Num_declaration;
 
         return $this;
     }

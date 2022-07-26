@@ -38,7 +38,7 @@ class Declarants
 
     public function __construct()
     {
-        $this->Num_declaration = new ArrayCollection();
+        $this->reclamations = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -69,37 +69,7 @@ class Declarants
 
         return $this;
     }
-
-    /**
-     * @return Collection<int, Reclamations>
-     */
-    public function getNumDeclaration(): Collection
-    {
-        return $this->Num_declaration;
-    }
-
-    public function addNumDeclaration(Reclamations $numDeclaration): self
-    {
-        if (!$this->Num_declaration->contains($numDeclaration)) {
-            $this->Num_declaration[] = $numDeclaration;
-            $numDeclaration->setDeclarants($this);
-        }
-
-        return $this;
-    }
-
-    public function removeNumDeclaration(Reclamations $numDeclaration): self
-    {
-        if ($this->Num_declaration->removeElement($numDeclaration)) {
-            // set the owning side to null (unless already changed)
-            if ($numDeclaration->getDeclarants() === $this) {
-                $numDeclaration->setDeclarants(null);
-            }
-        }
-
-        return $this;
-    }
-
+   
     public function getTypeDeclaration(): ?string
     {
         return $this->type_declaration;
@@ -147,4 +117,6 @@ class Declarants
 
         return $this;
     }
+
+   
 }
