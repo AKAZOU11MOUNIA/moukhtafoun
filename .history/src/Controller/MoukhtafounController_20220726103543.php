@@ -11,6 +11,8 @@ class MoukhtafounController extends AbstractController
     #[Route('/', name: 'app_moukhtafoun')]
     public function index(): Response
     {
-        return $this->render('moukhtafoun/index.html.twig');
+        return $this->render('moukhtafoun/index.html.twig', [
+            'controller_name' => 'MoukhtafounController',
+        ]);
     }
 }

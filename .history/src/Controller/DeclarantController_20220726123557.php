@@ -6,11 +6,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class MoukhtafounController extends AbstractController
+class DeclarantController extends AbstractController
 {
-    #[Route('/', name: 'app_moukhtafoun')]
+    #[Route('/declarant', name: 'app_declarant')]
     public function index(): Response
     {
-        return $this->render('moukhtafoun/index.html.twig');
+        return $this->render('declarant/index.html.twig', [
+            'controller_name' => 'DeclarantController',
+        ]);
     }
 }

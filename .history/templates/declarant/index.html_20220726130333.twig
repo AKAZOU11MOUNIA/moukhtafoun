@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+
+        {{ form_start(form) }}
+           
+            {{ form_row(form.NomComplet) }}
+            {{ form_row(form.TypeDeclaration) }}
+            {{ form_row(form.VilleActuelle) }}
+            {{ form_row(form.NumTelephone) }}
+             {{ form_row(form.Adresse) }}
+        {{ form_end(form) }}
+             
+            </div>
+        </div>
+    </body>
+</html>
