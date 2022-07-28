@@ -4,13 +4,12 @@ namespace App\Controller;
 
 
 use App\Entity\Declarants;
-use App\Form\DeclarantType;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-
+use App\Form\DeclarantType;
 class DeclarantController extends AbstractController
 {
     #[Route('/declarant', name: 'app_declarant')]
@@ -19,7 +18,9 @@ class DeclarantController extends AbstractController
         $p = new Declarants();
         $form = $this->createForm(DeclarantType::class, $p);
         $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted()) {
+            $session = $this->getRequest()->getSession();
+            $session->set('data'=> $form);
             $em =$doctrine->getManager();
             $em->persist($p);
             $em->flush();

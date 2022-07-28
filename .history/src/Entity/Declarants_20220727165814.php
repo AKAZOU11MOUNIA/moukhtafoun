@@ -48,11 +48,7 @@ class Declarants
             'min' => 6,
             'max' => 10,
             'minMessage' => 'vous devez entrer un CIN OU NUMERO DE PASSEPORT valide',
-            'maxMessage' => 'vous devez entrer un CIN OU NUMERO DE PASSEPORT valide',
-        ]));
-        $metadata->addPropertyConstraint('Adresse', new Assert\Length([
-            'min' => 10,
-            'minMessage' => 'vous devez entrer une ADRESSE valide',
+            'maxMessage' => 'vous devez entrer un CIN OU NUMERO DE PASSEPORT  valide',
         ]));
     }
 

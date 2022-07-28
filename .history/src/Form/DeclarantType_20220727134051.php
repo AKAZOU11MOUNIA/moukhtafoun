@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Declarants;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -34,6 +35,7 @@ class DeclarantType extends AbstractType
             ])
             ->add('Num_telephone', TextType::class, [
                 'label' => 'NUMERO DE TELEPHONE',
+                'constraints' => [new Length(['min' => 3])]
             ])
             ->add('Adresse', TextType::class, [
                 'label' => 'ADRESSE',

@@ -19,7 +19,7 @@ class DeclarantController extends AbstractController
         $p = new Declarants();
         $form = $this->createForm(DeclarantType::class, $p);
         $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted()&& $form->isValid()) {
             $em =$doctrine->getManager();
             $em->persist($p);
             $em->flush();

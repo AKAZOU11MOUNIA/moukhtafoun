@@ -9,6 +9,7 @@ use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class DeclarantController extends AbstractController
@@ -19,7 +20,10 @@ class DeclarantController extends AbstractController
         $p = new Declarants();
         $form = $this->createForm(DeclarantType::class, $p);
         $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted()) {
+            $session = new Session();
+            $session->start();
+            $session->set('data',$form);
             $em =$doctrine->getManager();
             $em->persist($p);
             $em->flush();

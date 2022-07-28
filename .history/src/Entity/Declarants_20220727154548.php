@@ -36,26 +36,6 @@ class Declarants
     #[ORM\Column(length: 20)]
     private ?string $Num_telephone = null;
 
-    public static function loadValidatorMetadata(ClassMetadata $metadata)
-    {
-        $metadata->addPropertyConstraint('Num_telephone', new Assert\Length([
-            'min' => 10,
-            'max' => 10,
-            'minMessage' => 'vous devez entrer un numero valide',
-            'maxMessage' => 'vous devez entrer un numero valide',
-        ]));
-        $metadata->addPropertyConstraint('CIN_ou_num_passeport', new Assert\Length([
-            'min' => 6,
-            'max' => 10,
-            'minMessage' => 'vous devez entrer un CIN OU NUMERO DE PASSEPORT valide',
-            'maxMessage' => 'vous devez entrer un CIN OU NUMERO DE PASSEPORT valide',
-        ]));
-        $metadata->addPropertyConstraint('Adresse', new Assert\Length([
-            'min' => 10,
-            'minMessage' => 'vous devez entrer une ADRESSE valide',
-        ]));
-    }
-
     #[ORM\Column(length: 255)]
     private ?string $Adresse = null;
 

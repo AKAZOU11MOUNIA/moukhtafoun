@@ -39,6 +39,9 @@ class PersonnePerdue
     #[ORM\Column(length: 255)]
     private ?string $Ville_et_lieu_de_disparition = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $image = null;
+
     public function __construct()
     {
         $this->Num_declaration = new ArrayCollection();
@@ -159,6 +162,18 @@ class PersonnePerdue
     public function setVilleEtLieuDeDisparition(string $Ville_et_lieu_de_disparition): self
     {
         $this->Ville_et_lieu_de_disparition = $Ville_et_lieu_de_disparition;
+
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(string $image): self
+    {
+        $this->image = $image;
 
         return $this;
     }
