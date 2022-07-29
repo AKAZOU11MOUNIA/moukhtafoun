@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Formulaire de declarant{% endblock %}
+{% block main %}
+{% endblock %} 
+{% block containte %}
+<br />
+ <h2>Formulaire de declarant</h2>
+    <br />
+    <div>
+        {{ form_start(form) }}
+            {{ form_row(form.CIN_ou_num_passeport) }}
+            {{ form_row(form.Nom_complet) }}
+            {{ form_row(form.Ville_actuelle) }}
+            {{ form_row(form.Num_telephone) }}
+             {{ form_row(form.Adresse) }}
+              {{ form_row(form.type_declaration) }}
+             {{ form_row(form.suivant) }}
+        {{ form_end(form) }}
+     </div>        
+            
+{% endblock %}   
