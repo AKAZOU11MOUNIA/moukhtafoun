@@ -1,8 +1,7 @@
 <?php
-
 namespace App\Entity;
-
 use App\Repository\PersonnePerdueRepository;
+use Container5e2gSrg\getDebug_ArgumentResolver_DatetimeService;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -34,7 +33,7 @@ class PersonnePerdue
     private ?string $Lien_Familiale_Avec_Declarant = null;
 
     #[ORM\Column]
-    private ?\DateInterval $Periode_de_disparition = null;
+    private ?\DateTimeImmutable $Periode_de_disparition = null;
 
     #[ORM\Column(length: 255)]
     private ?string $Ville_et_lieu_de_disparition = null;
@@ -142,12 +141,12 @@ class PersonnePerdue
         return $this;
     }
 
-    public function getPeriodeDeDisparition(): ?\DateInterval
+    public function getPeriodeDeDisparition(): ?\DateTimeImmutable
     {
         return $this->Periode_de_disparition;
     }
 
-    public function setPeriodeDeDisparition(\DateInterval $Periode_de_disparition): self
+    public function setPeriodeDeDisparition(?\DateTimeImmutable $Periode_de_disparition): self
     {
         $this->Periode_de_disparition = $Periode_de_disparition;
 
