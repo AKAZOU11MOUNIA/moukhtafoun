@@ -20,7 +20,7 @@ class DeclarantController extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted()) {
             $session = $this->getRequest()->getSession();
-            $session->set('data'=> $form);
+            $session->set('data'-> $form);
             $em =$doctrine->getManager();
             $em->persist($p);
             $em->flush();
