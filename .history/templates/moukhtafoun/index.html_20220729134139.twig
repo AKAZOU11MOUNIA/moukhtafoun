@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+{% block head %}
+ <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.3.5/dist/alpine.min.js" defer></script>
+    </head>
+
+{% endblock %}
+{% block containte %}
+{% block body %}
+    <div class="w-4/5 m-auto text-center">
+        <div class="py-12 border-b border-gray-200">
+            <h1 class="text-6xl pt-12 pb-8">
+                Personnes Disparues ({{ wls|length }})
+            </h1>
+
+            <span class="font-light text-gray-500 italic">
+                    Created
+            </span>
+        </div>
+    </div>
+
+    {% if app.user %}
+        <div class="mx-auto w-4/5 my-8">
+            <a 
+                href="" 
+                class="uppercase border border-gray-500 text-lg py-4 px-6 rounded transition transition-all bg-gray-800 text-white hover:bg-white hover:text-gray-800">
+            </a>
+        </div>
+    {% endif %}
+    
+    <div class="md:grid lg:grid-cols-3 gap-20 w-4/5 mx-auto py-15 ">
+        
+        {% for wl in wls %}
+            <div class="text-center pt-8 pb-4">
+                <img
+                    src="{{ asset('images/' ~ wl.getImage()) }}" 
+                    width="200" 
+                    height="150"
+                    alt=""
+                    class="shadow-xl rounded-md"
+                />
+
+                <h2 class="text-gray-700 font-bold text-3xl py-2">
+                    {{ wl.getNomComplet() }}
+                </h2>
+
+                <span class="text-gray-500">
+                    By <span class="italic text-sm text-gray-800">code | 28.01.2022
+                </span>
+
+                <p class="text-base text-gray-700 pt-4 pb-10 leading-8 font-light">
+                    {{ wl.getAge() }} ans {{ wl.getVilleEtLieuDeDisparition() }}
+                </p>
+
+                <a href="" class="uppercase border border-gray-500 text-gray-600 text-lg py-4 px-12 rounded transition transition-all hover:bg-gray-800 hover:text-white">
+                    Plus de detailles
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+{% endblock %}

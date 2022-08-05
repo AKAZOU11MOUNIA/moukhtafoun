@@ -176,4 +176,11 @@ class PersonnePerdue
 
         return $this;
     }
+<<<<<<< HEAD
+=======
+    public function getImagePath()
+    {
+        return 'public/images/'.$this->getImage();
+    }
+>>>>>>> affichage
 }
