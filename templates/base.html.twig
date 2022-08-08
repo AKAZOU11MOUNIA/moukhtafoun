@@ -13,7 +13,7 @@
 
 		<!-- Bootstrap core CSS -->
 		<!-- <link href="bootstrap.css" rel="stylesheet"> -->
-		<link href="{{ asset('assest/CSS/css/bootstrap.min.css') }}" rel="stylesheet">
+		<link href="{{ asset('assets/CSS/css/bootstrap.min.css') }}" rel="stylesheet">
 
 		<style>
 			.bd-placeholder-img {
@@ -32,7 +32,7 @@
 			}
 		</style>
 		<!-- Custom styles for this template -->
-		<link href="{{ asset('assest/CSS/css/carousel.css') }}" rel="stylesheet">
+		<link href="{{ asset('assets/CSS/css/carousel.css') }}" rel="stylesheet">
 	</head>
 	<body>
 		<header>
@@ -62,69 +62,69 @@
 				</div>
 			</nav>
 		</header>
+		{% block main %}
+			<main role="main">
 
-		<main role="main">
-
-			<div id="myCarousel" class="carousel slide" data-ride="carousel">
-				<ol class="carousel-indicators">
-					<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-					<li data-target="#myCarousel" data-slide-to="1"></li>
-					<li data-target="#myCarousel" data-slide-to="2"></li>
-				</ol>
-				<div class="carousel-inner">
-					<div class="carousel-item active">
-						<svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveaspectratio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#777"/></svg>
-						<div class="container">
-							<div class="carousel-caption text-left">
-								<h1>Example d'un titre</h1>
-								<p>texte.......
-								</p>
-								<p>
-									<a class="btn btn-lg btn-primary" href="#" role="button">Faire une DECLARATION</a>
-								</p>
+				<div id="myCarousel" class="carousel slide" data-ride="carousel">
+					<ol class="carousel-indicators">
+						<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+						<li data-target="#myCarousel" data-slide-to="1"></li>
+						<li data-target="#myCarousel" data-slide-to="2"></li>
+					</ol>
+					<div class="carousel-inner">
+						<div class="carousel-item active">
+							<svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveaspectratio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#777"/></svg>
+							<div class="container">
+								<div class="carousel-caption text-left">
+									<h1>Example d'un titre</h1>
+									<p>texte.......
+									</p>
+									<p>
+										<a class="btn btn-lg btn-primary" href="#" role="button">Faire une DECLARATION</a>
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="carousel-item">
+							<svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveaspectratio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#777"/></svg>
+							<div class="container">
+								<div class="carousel-caption">
+									<h1>autre example d'un titre.</h1>
+									<p>text.......
+									</p>
+									<p>
+										<a class="btn btn-lg btn-primary" href="#" role="button">Pour en savoir plus</a>
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="carousel-item">
+							<svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveaspectratio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#777"/></svg>
+							<div class="container">
+								<div class="carousel-caption text-right">
+									<h1>autre exemple d'un titre.</h1>
+									<p>text.......
+									</p>
+									<p>
+										<a class="btn btn-lg btn-primary" href="#" role="button">Parcourir la galerie</a>
+									</p>
+								</div>
 							</div>
 						</div>
 					</div>
-					<div class="carousel-item">
-						<svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveaspectratio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#777"/></svg>
-						<div class="container">
-							<div class="carousel-caption">
-								<h1>autre example d'un titre.</h1>
-								<p>text.......
-								</p>
-								<p>
-									<a class="btn btn-lg btn-primary" href="#" role="button">Pour en savoir plus</a>
-								</p>
-							</div>
-						</div>
-					</div>
-					<div class="carousel-item">
-						<svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveaspectratio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#777"/></svg>
-						<div class="container">
-							<div class="carousel-caption text-right">
-								<h1>autre exemple d'un titre.</h1>
-								<p>text.......
-								</p>
-								<p>
-									<a class="btn btn-lg btn-primary" href="#" role="button">Parcourir la galerie</a>
-								</p>
-							</div>
-						</div>
-					</div>
+					<a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						<span class="sr-only">Précédent</span>
+					</a>
+					<a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+						<span class="carousel-control-next-icon" aria-hidden="true"></span>
+						<span class="sr-only">Prochain</span>
+					</a>
 				</div>
-				<a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-					<span class="sr-only">Précédent</span>
-				</a>
-				<a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-					<span class="carousel-control-next-icon" aria-hidden="true"></span>
-					<span class="sr-only">Prochain</span>
-				</a>
-			</div>
 
-
+			{% endblock %}
 			<!-- Marketing messaging and featurettes
-						    ================================================== -->
+																																													    ================================================== -->
 			<!-- Wrap the rest of the page in another container to center all the content. -->
 
 			<div class="container marketing"> {% block containte %}{% endblock %}
@@ -134,19 +134,22 @@
 				<!-- /.container -->
 
 				<!-- FOOTER -->
-				<footer class="container">
-					<p class="float-right">
-						<a href="#">Back to top</a>
-					</p>
-					<p>&copy; 2022 MAROC, Inc. &middot;
-						<a href="#">Privacy</a>
-						&middot;
-						<a href="#">Terms</a>
-					</p>
-				</footer>
+				{% block foot %}
+					<footer class="container">
+
+						<p class="float-right">
+							<a href="#">Back to top</a>
+						</p>
+						<p>&copy; 2022 MAROC, Inc. &middot;
+							<a href="#">Privacy</a>
+							&middot;
+							<a href="#">Terms</a>
+						</p>
+					</footer>
+				{% endblock %}
 			</main>
 			<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 			<!--<script src="bootstrap.bundle.js"></script>-->
-			<script src="{{ asset('assest/JS/js/bootstrap.bundle.js') }}"></script>
+			<script src="{{ asset('assets/JS/js/bootstrap.bundle.js') }}"></script>
 		</body>
 	</html>
