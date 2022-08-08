@@ -142,12 +142,12 @@ class PersonnePerdue
         return $this;
     }
 
-    public function getPeriodeDeDisparition(): ?\DateTimeImmutable
+    public function getPeriodeDeDisparition(): ?\DateInterval
     {
         return $this->Periode_de_disparition;
     }
 
-    public function setPeriodeDeDisparition(\DateTimeImmutable $Periode_de_disparition): self
+    public function setPeriodeDeDisparition(\DateInterval $Periode_de_disparition): self
     {
         $this->Periode_de_disparition = $Periode_de_disparition;
 
