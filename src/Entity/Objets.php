@@ -18,17 +18,31 @@ class Objets
     #[ORM\OneToMany(mappedBy: 'objets', targetEntity: Reclamations::class)]
     private Collection $Num_reclamation;
 
-    #[ORM\Column(length: 40)]
-    private ?string $Option_Objet = null;
+    // #[ORM\Column(length: 40)]
+    // private ?string $Option_Objet = null;
 
     #[ORM\Column(length: 150)]
     private ?string $Objet = null;
 
     #[ORM\Column(length: 255)]
+    private ?string $Description_objet = null;
+
+   
+    
+
+    #[ORM\Column(length: 255)]
     private ?string $Lieu_et_ville_de_disparition = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $Description_objet = null;
+    private ?string $Decrire_la_situation = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $Images = null;
+
+   
+
+
+   
 
     public function __construct()
     {
@@ -114,6 +128,30 @@ class Objets
     public function setDescriptionObjet(string $Description_objet): self
     {
         $this->Description_objet = $Description_objet;
+
+        return $this;
+    }
+
+    public function getDecrireLaSituation(): ?string
+    {
+        return $this->Decrire_la_situation;
+    }
+
+    public function setDecrireLaSituation(string $Decrire_la_situation): self
+    {
+        $this->Decrire_la_situation = $Decrire_la_situation;
+
+        return $this;
+    }
+
+    public function getImages(): ?string
+    {
+        return $this->Images;
+    }
+
+    public function setImages(string $Images): self
+    {
+        $this->Images = $Images;
 
         return $this;
     }

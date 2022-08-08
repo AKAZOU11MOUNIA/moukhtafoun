@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Formulaire d'objet perdu{% endblock %}
+
+{% block main %}
+{% endblock %} 
+{% block containte %}
+<br />
+ <h2>Formulaire de l'objet perdu</h2>
+    <br />
+    <div>
+        {{ form_start(form) }}
+            {{ form_row(form.Objet) }}
+            {{ form_row(form.Description_objet) }}
+            {{ form_row(form.Decrire_la_situation) }}
+            {{ form_row(form.photo) }}
+            
+            {{ form_row(form.Lieu_et_ville_de_disparition) }}
+            {{ form_row(form.Submit) }}
+           
+             
+        
+     </div>        
+            
+{% endblock %}   
