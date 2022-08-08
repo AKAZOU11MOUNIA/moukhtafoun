@@ -181,4 +181,4 @@ class PersonnePerdue
     {
         return 'public/images/'.$this->getImage();
     }
-}s
+}

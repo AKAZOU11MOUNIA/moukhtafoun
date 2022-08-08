@@ -11,7 +11,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class MoukhtafounController extends AbstractController
 {
     #[Route('/', name: 'app_moukhtafoun')]
-
+<<<<<<< HEAD
+    
     public function index(ManagerRegistry $doctrine): Response
     { 
         $wls =$doctrine->getRepository(PersonnePerdue::class)->findAll();
@@ -26,4 +27,7 @@ class MoukhtafounController extends AbstractController
             'pr' => $pr
         ]);
     }
+=======
+   
+>>>>>>> b9bb8333fbb4520c7ef508c3becab4786b4e8264
 }
