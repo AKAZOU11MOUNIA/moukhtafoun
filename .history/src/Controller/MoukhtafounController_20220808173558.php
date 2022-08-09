@@ -20,6 +20,7 @@ class MoukhtafounController extends AbstractController
     #[Route('/details/{id}', name: 'details')]
     public function show($id,ManagerRegistry $doctrine): Response
     {
+
         $pr = $doctrine->getRepository(PersonnePerdue::class)->find($id);
         
         return $this->render('moukhtafoun/show.html.twig', [

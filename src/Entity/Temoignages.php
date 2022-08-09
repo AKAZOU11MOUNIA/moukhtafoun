@@ -31,12 +31,12 @@ class Temoignages
         return $this->id;
     }
 
-    public function getNumDeclaration(): ?Reclamations
+    public function getNumDeclaration(): ?string
     {
         return $this->Num_declaration;
     }
 
-    public function setNumDeclaration(?Reclamations $Num_declaration): self
+    public function setNumDeclaration(?string $Num_declaration): self
     {
         $this->Num_declaration = $Num_declaration;
 
