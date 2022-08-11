@@ -14,7 +14,7 @@
     <div class="w-4/5 m-auto text-center">
         <div class="py-12 border-b border-gray-200">
             <h1 class="text-6xl pt-12 pb-8">
-                {{ pr|length }} Personnes Disparues
+                {{ wls|length }} Personnes Disparues
             </h1>
 
             <span class="font-light italic text-lime-600">
@@ -49,7 +49,7 @@
                 </a>
             </div>
         {% endfor %}
-        {{ knp_pagination_render(pr) }} 
+        {{ knp_pagination_render(pr) }}
     </div>
 {% endblock %}
 {% endblock %}

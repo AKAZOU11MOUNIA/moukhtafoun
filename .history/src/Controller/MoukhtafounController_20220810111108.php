@@ -22,7 +22,7 @@ class MoukhtafounController extends AbstractController
             $request->query->getInt('page', 1), // Numéro de la page en cours, passé dans l'URL, 1 si aucune page
             9 // Nombre de résultats par page
         );
-        return $this->render('moukhtafoun/index.html.twig',array('pr' => $personne));
+        return $this->render('moukhtafoun/index.html.twig',array('wls' => $wls));
     }
     #[Route('/details/{id}', name: 'details')]
     public function show($id,ManagerRegistry $doctrine): Response
