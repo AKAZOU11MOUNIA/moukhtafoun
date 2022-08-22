@@ -1,0 +1,96 @@
+{% extends 'base.html.twig' %}
+{% set queryParams = app.request.query.all %}
+{% block head %}
+{{ parent() }}
+    
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+       
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.3.5/dist/alpine.min.js" defer></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js" type="text/javascript"></script>
+{% endblock %}
+{% block containte %}
+{% block body %}
+    <div class="w-4/5 m-auto text-center">
+        <div class="py-12 border-b border-gray-200">
+            <h1 class="text-6xl pt-12 pb-8">
+                {{ pr|length }} Personnes Disparues
+            </h1>
+
+            <span class="font-light italic text-lime-600">
+                    “Our vision is for every missing child and adult, and every loved one left behind, to find help, hope and a safe way to reconnect.”
+            </span>
+        </div>
+    </div>
+    
+    <div class="text-center pt-8 pb-4">
+                        SEARCH FILTER
+                        </div>
+     <form class="form-inline" role="form" id="filter_form" method="post">
+     
+                        <div class="col-md-3">
+                        {{ form_start(form)}}
+                          <div class="form-group">
+                       
+                                <div style="width:100%;">
+                          {{ form_row(form.age, {'attr': {'class': 'form-control','id':'search','style':'width:100%;'}}) }}  
+                          </div>
+                          </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <div style="width:100%;">
+                          {{ form_row(form.ville, {'attr': {'class': 'form-control','id':'search','style':'width:100%;'}}) }}  
+                          </div>
+                            </div>
+                        </div>
+
+                         <div class="col-md-3">
+                            <div class="form-group">
+                                <div style="width:100%;">
+                          {{ form_row(form.nom, {'attr': {'class': 'form-control','id':'search','style':'width:100%;'}}) }}  
+                          </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-3">
+                            <div class="form-group">
+                               <div style="width:100%;"> 
+                          <input class= "btn btn-outline-success" width=100% type="submit" value="FILTRER" /> 
+                          </div>
+                            </div>
+                        </div>                  
+                        {{ form_end(form)}}
+                
+                </form>
+    <div class="md:grid lg:grid-cols-3 gap-20 w-4/5 mx-auto py-15 ">
+        <div id="resultats_recherche"> 
+   
+</div>
+    </div>
+    
+    
+   <script>
+$(".loading").hide();
+$("#filter_form").submit(function(){ 
+    $(".loading").show();
+    var motcle = $("#acteurrecherche_motcle").val();
+    var DATA = 'motcle=' + motcle;
+    $.ajax({
+        type: "POST",
+        url: "{{ path('app_moukhtafoun')}}",
+        data: DATA,
+        cache: false,
+        success: function(data){
+           $('#resultats_recherche').html(data);
+           $(".loading").hide();
+        }
+    });    
+    return false;
+});
+</script>
+{% endblock %}
+{% endblock %}
