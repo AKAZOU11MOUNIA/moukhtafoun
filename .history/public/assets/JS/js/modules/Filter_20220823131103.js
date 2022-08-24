@@ -11,7 +11,7 @@ export default class Filter{
     this.sorting = element.querySelector('.js-filter-sorting')
     this.form = element.querySelector('.js-filter-form')
     this.bindEvents()
-    
+    console.log("hi")
 }
 
 bindEvents () {
@@ -30,7 +30,7 @@ bindEvents () {
     this.form.querySelectorAll('input').forEach(input => {
       input.addEventListener('change', this.loadForm.bind(this))
     })
-    
+    console.log("hi")
   }
 }
 
@@ -42,7 +42,7 @@ bindEvents () {
       params.append(key, value)
     })
     return this.loadUrl(url.pathname + '?' + params.toString())
-    
+    console.log(this.loadUrl(url.pathname + '?' + params.toString()))
   }
 
   async loadUrl (url, append = false) {
@@ -56,13 +56,14 @@ bindEvents () {
     })
     if (response.status >= 200 && response.status < 300) {
       const data = await response.json()
-      this.content.innerHTML=data.content
+      this.flipContent(data.content, append)
+      this.sorting.innerHTML = data.sorting
       this.pagination.innerHTML = data.pagination
     } else {
       console.error(response)
     }
     this.hideLoader()
-    
+    console.log(response)
   }
   
 

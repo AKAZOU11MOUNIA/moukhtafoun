@@ -41,6 +41,7 @@ class MoukhtafounController extends AbstractController
         return $this->render('moukhtafoun/index.html.twig', [
             'pr' => $personne,
             'form' => $form->createView(),
+            'f' => $request->get('ajax')
         ]);
         
     }

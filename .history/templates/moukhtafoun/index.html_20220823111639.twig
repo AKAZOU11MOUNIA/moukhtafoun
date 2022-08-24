@@ -94,16 +94,38 @@
 			</style>
     <div class="md:grid lg:grid-cols-3 gap-20 w-4/5 mx-auto py-15 js-filter-content">
         
-       {% include 'moukhtafoun/_pr.html.twig' %}
+        {% for wl in pr %}
+            <div class="text-center pt-8 pb-4">
+                <img
+                    src="{{ asset('images/' ~ wl.getImage()) }}" 
+                    alt=""
+                    class="mx-auto d-block shadow-xl rounded-md object-fill h-48 w-48"
+                />
+
+                <h2 class="text-center text-gray-700 font-bold text-3xl py-2">
+                    {{ wl.getNomComplet() }}
+                </h2>
+
+                <span class="text-center text-gray-500">
+                <span class="text-center italic text-sm text-gray-800"> {{ wl.getPeriodeDeDisparition().format('y-m-d') }}
+                </span>
+                <div>
+                <span class="text-center text-base text-gray-700 pt-4 pb-10 leading-8 font-light">
+                    {{ wl.getVilleEtLieuDeDisparition() }}
+                </span>
+                </div>
+                <a href="{{ path('details', {'id': wl.id }) }}" class="text-center uppercase btn btn-outline-success my-2 my-sm-0">
+                     plus de détails
+                </a>
+            </div>
+        {% endfor %}
         </div>
         <div class="js-filter-pagination">
-         {% include 'moukhtafoun/pagination.html.twig' %}
+        {{ knp_pagination_render(pr) }} 
     </div>
     </div>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"/>
     <script type="module" src="{{ asset('assets/JS/js/app.js') }}" defer></script>
 <script type="module" src="{{ asset('JS/js/app.js') }}" defer></script>
-
 {% endblock %}
 
 {% endblock %}

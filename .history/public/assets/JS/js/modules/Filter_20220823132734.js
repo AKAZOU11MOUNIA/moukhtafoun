@@ -30,6 +30,7 @@ bindEvents () {
     this.form.querySelectorAll('input').forEach(input => {
       input.addEventListener('change', this.loadForm.bind(this))
     })
+    console.log('hi')
     
   }
 }
@@ -41,6 +42,7 @@ bindEvents () {
     data.forEach((value, key) => {
       params.append(key, value)
     })
+    console.log(this.loadUrl(url.pathname + '?' + params.toString()))
     return this.loadUrl(url.pathname + '?' + params.toString())
     
   }
@@ -56,13 +58,14 @@ bindEvents () {
     })
     if (response.status >= 200 && response.status < 300) {
       const data = await response.json()
-      this.content.innerHTML=data.content
+      this.flipContent(data.content, append)
+      this.sorting.innerHTML = data.sorting
       this.pagination.innerHTML = data.pagination
     } else {
       console.error(response)
     }
     this.hideLoader()
-    
+    console.log(response)
   }
   
 

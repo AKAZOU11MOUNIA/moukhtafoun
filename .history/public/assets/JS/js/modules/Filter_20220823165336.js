@@ -56,7 +56,8 @@ bindEvents () {
     })
     if (response.status >= 200 && response.status < 300) {
       const data = await response.json()
-      this.content.innerHTML=data.content
+      this.flipContent(data.content, append)
+      this.sorting.innerHTML = data.sorting
       this.pagination.innerHTML = data.pagination
     } else {
       console.error(response)

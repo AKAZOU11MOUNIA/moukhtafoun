@@ -33,14 +33,17 @@ class MoukhtafounController extends AbstractController
         );
         if ($request->get('ajax')) {
             return new JsonResponse([
-                'content' => $this->renderView('moukhtafoun/_pr.html.twig', ['pr' => $personne]),
-                'pagination' => $this->renderView('moukhtafoun/pagination.html.twig', ['pr' => $personne]),
+                'content' => $this->renderView('moukhtafoun/_products.html.twig', ['pr' => $personne]),
+                'sorting' => $this->renderView('moukhtafoun/index.html.twig', ['pr' => $personne]),
+                'pagination' => $this->renderView('moukhtafoun/index.html.twig', ['pr' => $personne]),
+                'pages' => ceil($personne->getTotalItemCount() / $personne->getItemNumberPerPage()),
                 
             ]);
         }
         return $this->render('moukhtafoun/index.html.twig', [
             'pr' => $personne,
             'form' => $form->createView(),
+            'f' => $request->get('ajax')
         ]);
         
     }

@@ -22,7 +22,7 @@ class MoukhtafounController extends AbstractController
     { 
         
         $data = new Search();
-        $data->page = $request->get('ajax');
+        $data->page = $request->get('page', 1);
         $form = $this->createForm(SearchType::class, $data);
         $form->handleRequest($request);
         $wls =$repository->findSearch($data);
@@ -33,14 +33,17 @@ class MoukhtafounController extends AbstractController
         );
         if ($request->get('ajax')) {
             return new JsonResponse([
-                'content' => $this->renderView('moukhtafoun/_pr.html.twig', ['pr' => $personne]),
-                'pagination' => $this->renderView('moukhtafoun/pagination.html.twig', ['pr' => $personne]),
+                'content' => $this->renderView('moukhtafoun/index.html.twig', ['pr' => $personne]),
+                'sorting' => $this->renderView('moukhtafoun/index.html.twig', ['pr' => $personne]),
+                'pagination' => $this->renderView('moukhtafoun/index.html.twig', ['pr' => $personne]),
+                'pages' => ceil($personne->getTotalItemCount() / $personne->getItemNumberPerPage()),
                 
             ]);
         }
         return $this->render('moukhtafoun/index.html.twig', [
             'pr' => $personne,
             'form' => $form->createView(),
+            'f' => $request->get('ajax')
         ]);
         
     }

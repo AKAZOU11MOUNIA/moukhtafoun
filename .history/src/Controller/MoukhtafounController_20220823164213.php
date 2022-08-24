@@ -32,15 +32,12 @@ class MoukhtafounController extends AbstractController
             9 // Nombre de résultats par page
         );
         if ($request->get('ajax')) {
-            return new JsonResponse([
-                'content' => $this->renderView('moukhtafoun/_pr.html.twig', ['pr' => $personne]),
-                'pagination' => $this->renderView('moukhtafoun/pagination.html.twig', ['pr' => $personne]),
-                
-            ]);
+            return new JsonResponse($personne);
         }
         return $this->render('moukhtafoun/index.html.twig', [
             'pr' => $personne,
             'form' => $form->createView(),
+            'f' => $request->get('ajax')
         ]);
         
     }

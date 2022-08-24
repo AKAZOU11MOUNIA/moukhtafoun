@@ -50,13 +50,15 @@ bindEvents () {
     const params = new URLSearchParams(url.split('?')[1] || '')
     params.set('ajax', 1)
     const response = await fetch(url.split('?')[0] + '?' + params.toString(), {
+        method: 'get',
       headers: {
         'X-Requested-With': 'XMLHttpRequest'
-      }
+      },
     })
     if (response.status >= 200 && response.status < 300) {
       const data = await response.json()
-      this.content.innerHTML=data.content
+      this.flipContent(data.content, append)
+      this.sorting.innerHTML = data.sorting
       this.pagination.innerHTML = data.pagination
     } else {
       console.error(response)
