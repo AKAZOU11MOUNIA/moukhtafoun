@@ -13,8 +13,9 @@ class Temoignages
     #[ORM\Column()]
     private ?int $id = null;
 
-    #[ORM\Column(length: 30)]
-    private ?int $Num_declaration = null;
+    #[ORM\ManyToOne(inversedBy: 'temoignages')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Reclamations $Num_declaration = null;
 
     #[ORM\Column(length: 30)]
     private ?string $CIN_ou_Num_passeport = null;
@@ -30,12 +31,12 @@ class Temoignages
         return $this->id;
     }
 
-    public function getNumDeclaration(): ?int
+    public function getNumDeclaration(): ?string
     {
         return $this->Num_declaration;
     }
 
-    public function setNumDeclaration(?int $Num_declaration): self
+    public function setNumDeclaration(?string $Num_declaration): self
     {
         $this->Num_declaration = $Num_declaration;
 

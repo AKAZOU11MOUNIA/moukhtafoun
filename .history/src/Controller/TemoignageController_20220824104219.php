@@ -14,10 +14,9 @@ use App\Form\TemoignageType;
 class TemoignageController extends AbstractController
 {
     #[Route('/temoignage/{id}', name: 'app_temoignage')]
-    public function index($id,Request $request, ManagerRegistry $doctrine): Response
+    public function index(Request $request, ManagerRegistry $doctrine): Response
     {
         $p = new Temoignages();
-        $p->setNumDeclaration($id);
         $form = $this->createForm(TemoignageType::class, $p);
         $form->handleRequest($request);
         if ($form->isSubmitted()) {

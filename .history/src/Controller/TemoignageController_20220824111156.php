@@ -17,11 +17,11 @@ class TemoignageController extends AbstractController
     public function index($id,Request $request, ManagerRegistry $doctrine): Response
     {
         $p = new Temoignages();
-        $p->setNumDeclaration($id);
         $form = $this->createForm(TemoignageType::class, $p);
         $form->handleRequest($request);
         if ($form->isSubmitted()) {
             $em = $doctrine->getManager();
+           
             $em->persist($p);
             $em->flush();
             $choice = $p->getTypeTemoignage();

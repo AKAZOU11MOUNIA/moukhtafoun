@@ -13,8 +13,9 @@ class Temoignages
     #[ORM\Column()]
     private ?int $id = null;
 
-    #[ORM\Column(length: 30)]
-    private ?int $Num_declaration = null;
+    #[ORM\ManyToOne(inversedBy: 'temoignages')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Reclamations $Num_declaration = null;
 
     #[ORM\Column(length: 30)]
     private ?string $CIN_ou_Num_passeport = null;
