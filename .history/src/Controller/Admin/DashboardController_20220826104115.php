@@ -2,24 +2,14 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\Objets;
-use App\Entity\Archives;
-use App\Entity\Declarants;
-use App\Entity\Temoignages;
-use App\Entity\Reclamations;
-use App\Entity\PersonnePerdue;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use App\Controller\Admin\DeclarantsCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use App\Controller\Admin\PersonnePerdueCrudController;
-use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
-use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
-
 
 class DashboardController extends AbstractDashboardController
 {
@@ -63,16 +53,8 @@ class DashboardController extends AbstractDashboardController
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
         // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
-        
-        yield MenuItem::subMenu('Actions', 'fas fa-bars')->setSubItems([
-            MenuItem::linkToCrud('Create', 'fas fa-plus',Declarants::class)->setAction(Crud::PAGE_NEW),
-            MenuItem::linkToCrud('Show', 'fas fa-eye',Declarants::class)
-        ]);
-        yield MenuItem::linkToCrud('Objets Perdues', 'fas fa-list', Objets::class);
-        yield MenuItem::linkToCrud('Personnes Perdues', 'fas fa-list', PersonnePerdue::class);
-        yield MenuItem::linkToCrud('Temoignages', 'fas fa-list', Temoignages::class);
-        yield MenuItem::linkToCrud('Archives', 'fas fa-list', Archives::class);
-        yield MenuItem::linkToCrud('Reclamations', 'fas fa-list', Reclamations::class);
-        
+        yield MenuItem::section('Declarant');
+        yield MenuItem::linkToCrud('Personnes Perdues', 'fas fa-list',PersonnePerdueCrudController::class);
+
     }
 }

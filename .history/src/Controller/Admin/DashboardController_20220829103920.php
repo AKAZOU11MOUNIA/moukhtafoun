@@ -3,10 +3,8 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Objets;
-use App\Entity\Archives;
 use App\Entity\Declarants;
 use App\Entity\Temoignages;
-use App\Entity\Reclamations;
 use App\Entity\PersonnePerdue;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -71,8 +69,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Objets Perdues', 'fas fa-list', Objets::class);
         yield MenuItem::linkToCrud('Personnes Perdues', 'fas fa-list', PersonnePerdue::class);
         yield MenuItem::linkToCrud('Temoignages', 'fas fa-list', Temoignages::class);
-        yield MenuItem::linkToCrud('Archives', 'fas fa-list', Archives::class);
-        yield MenuItem::linkToCrud('Reclamations', 'fas fa-list', Reclamations::class);
-        
+
     }
 }

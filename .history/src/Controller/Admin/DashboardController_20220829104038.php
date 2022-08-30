@@ -71,8 +71,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Objets Perdues', 'fas fa-list', Objets::class);
         yield MenuItem::linkToCrud('Personnes Perdues', 'fas fa-list', PersonnePerdue::class);
         yield MenuItem::linkToCrud('Temoignages', 'fas fa-list', Temoignages::class);
-        yield MenuItem::linkToCrud('Archives', 'fas fa-list', Archives::class);
-        yield MenuItem::linkToCrud('Reclamations', 'fas fa-list', Reclamations::class);
-        
+        yield MenuItem::linkToCrud('Temoignages', 'fas fa-list', Archives::class);
+        yield MenuItem::linkToCrud('Temoignages', 'fas fa-list', Reclamations::class);
     }
 }
